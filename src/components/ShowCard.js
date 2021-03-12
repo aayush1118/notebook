@@ -1,43 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useRouteMatch } from 'react-router-dom';
+import NotesContext from './NotesContext';
 
 function ShowCard() {
+	const { notes } = useContext(NotesContext);
+	const match = useRouteMatch();
+	const id = match.params.id;
+	const note = notes.find((x) => x.id === id);
 	return (
 		<>
-			<nav>
-				<Link to={'/'}>back</Link>
-				<Link to={'/edit'}>edit</Link>
+			<nav className='nav'>
+				<Link to={'/'} className='btn'>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						width='24'
+						height='24'
+						viewBox='0 0 24 24'
+						fill='none'
+						stroke='currentColor'
+						strokeWidth='1.7'
+						strokeLinecap='round'
+						strokeLinejoin='round'
+					>
+						<polyline points='15 18 9 12 15 6'></polyline>
+					</svg>
+				</Link>
+				<Link to={`/edit/${note.id}`} className='btn'>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						width='24'
+						height='24'
+						viewBox='0 0 24 24'
+						fill='none'
+						stroke='currentColor'
+						strokeWidth='1.7'
+						strokeLinecap='round'
+						strokeLinejoin='round'
+					>
+						<path d='M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7'></path>
+						<path d='M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z'></path>
+					</svg>
+				</Link>
 			</nav>
 			<section>
-				<h1>How to make you personal brand out online</h1>
-				<p>Jan 11, 2021</p>
-
-				<p>
-					President Biden ran for the White House as an apostle of
-					bipartisanship, but the bitter fight over the $1.9 trillion
-					pandemic measure that squeaked through the Senate on
-					Saturday made clear that the differences between the two
-					warring parties were too wide to be bridged by Mr. Biden’s
-					good President Biden ran for the White House as an apostle
-					of bipartisanship, but the bitter fight over the $1.9
-					trillion pandemic measure that squeaked through the Senate
-					on Saturday made clear that the differences between the two
-					warring parties were too wide to be bridged by Mr. Biden’s
-					good intentions. Not a single Republican in Congress voted
-					for the rescue package now headed for final approval in the
-					House and a signature from Mr. Biden, as they angrily
-					denounced the legislation and the way in which it was
-					assembled. Other marquee Democratic measures to protect and
-					expand voting rights, tackle police bias and misconduct and
-					more are also drawing scant to zero Republican
-					backing.intentions. Not a single Republican in Congress
-					voted for the rescue package now headed for final approval
-					in the House and a signature from Mr. Biden, as they angrily
-					denounced the legislation and the way in which it was
-					assembled. Other marquee Democratic measures to protect and
-					expand voting rights, tackle police bias and misconduct and
-					more are also drawing scant to zero Republican backing.
-				</p>
+				<h1>{note.title}</h1>
+				<p>{note.id}</p>
+				<p>{note.note}</p>
 			</section>
 		</>
 	);
