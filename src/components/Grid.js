@@ -4,6 +4,14 @@ import NotesContext from './NotesContext';
 
 function Grid() {
 	const { notes } = useContext(NotesContext);
+	const colors = [
+		'#feae5f',
+		'#d5e279',
+		'#aa9dc8',
+		'#fa886f',
+		'#71caf1',
+		'#75c57d',
+	];
 
 	return (
 		<>
@@ -28,11 +36,14 @@ function Grid() {
 			</nav>
 
 			<section className='grid'>
-				{notes.map((x) => (
+				{notes.map((x, i) => (
 					<Link to={`/note/${x.id}`} key={x.id}>
-						<div className='card'>
-							<h4>{x.title}</h4>
-							<p>{x.id}</p>
+						<div
+							className='card'
+							style={{ background: colors[i % colors.length] }}
+						>
+							<h4 className='card-title'>{x.title}</h4>
+							<p className='card-date'>{x.id}</p>
 						</div>
 					</Link>
 				))}

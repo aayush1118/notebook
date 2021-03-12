@@ -2,12 +2,12 @@
 
 :root {
 	--background: #070706;
-	--orange: #fe9a37;
-	--lime: #cbdb57;
-	--purple: #9585ba;
-	--red: #f96a4b;
-	--blue: #4dbded;
-	--green: #53b75d;
+	--orange: #feae5f;
+	--lime: #d5e279;
+	--purple: #aa9dc8;
+	--red: #fa886f;
+	--blue: #71caf1;
+	--green: #75c57d;
 	--light: #fbfbfb;
 	--secondary: #f6f6f6;
 	font-size: 20px;
@@ -22,6 +22,7 @@ html {
 	font-weight: normal;
 	padding: 0;
 	margin: 0;
+	text-decoration: none;
 }
 
 body {
@@ -33,7 +34,6 @@ body {
 .container {
 	width: 90%;
 	margin: 0 auto;
-	padding-top: 1.5rem;
 }
 
 .nav {
@@ -41,7 +41,7 @@ body {
 	border: 1px solid black;
 	display: flex;
 	justify-content: space-between;
-	margin: 1rem 0;
+	padding: 1rem 0;
 }
 
 .brand {
@@ -61,11 +61,11 @@ body {
 }
 
 .createBtn {
-	background-color: var(--red);
+	background-color: var(--lime);
 	border: 1px solid #00000031;
-	position: absolute;
+	position: sticky;
 	bottom: 3rem;
-	right: 5%;
+	left: 95%;
 	color: black;
 	display: flex;
 	justify-content: center;
@@ -76,15 +76,35 @@ body {
 	box-shadow: 0px 0px 10px 4px #00000040;
 }
 
-.card {
-	background-color: var(--light);
-	color: black;
-	border-radius: 0.7rem;
-	padding: 1rem;
-}
-
 .grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 0.5rem;
+}
+
+.card {
+	background-color: var(--light);
+	border-radius: 0.7rem;
+	padding: 0.8rem;
+}
+.card-title {
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--background);
+	width: 90%;
+}
+.card-date {
+	font-size: 0.7rem;
+	color: #00000099;
+	margin-top: 0.5rem;
+}
+
+.bg1 {
+	background-color: var(--red);
+}
+
+@media (min-width: 600px) {
+	.container {
+		max-width: 20rem;
+	}
 }
