@@ -43,9 +43,9 @@ function ShowCard() {
 				</Link>
 			</nav>
 			<section>
-				<h1>{note.title}</h1>
-				<p>{note.id}</p>
-				<p>{note.note}</p>
+				<h1 className='show-title'>{note.title}</h1>
+				<p className='show-date'>{note.date}</p>
+				<p className='show-note'>{note.note}</p>
 			</section>
 		</>
 	);

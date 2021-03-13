@@ -106,29 +106,38 @@ body {
 	margin-top: 0.5rem;
 }
 
-.bg1 {
-	background-color: var(--red);
+.show-title {
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+	width: 95%;
+	line-height: 1.8rem;
 }
-/* width */
+.show-date {
+	font-size: 0.8rem;
+	color: #c6c6c6;
+	margin-bottom: 0.5rem;
+}
+.show-note {
+	font-size: 0.9rem;
+	font-weight: 400;
+	color: var(--secondary);
+}
+
+/* scroll bar styles */
 ::-webkit-scrollbar {
 	width: 8px;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
 	background: #00000000;
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
 	background-color: rgba(255, 255, 255, 0.137);
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
 	background: rgb(83, 83, 83);
 }
 
+/* media queries */
 @media (min-width: 600px) {
 	.container {
 		max-width: 20rem;
