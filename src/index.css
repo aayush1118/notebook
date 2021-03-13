@@ -26,6 +26,14 @@ html {
 	text-decoration: none;
 }
 
+button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+	padding: 0 1rem;
+	font-size: 0.8rem;
+}
+
 body {
 	background: var(--background);
 	color: var(--light);
@@ -123,9 +131,33 @@ body {
 	color: var(--secondary);
 }
 
+.form-title {
+	width: 100%;
+	background: transparent;
+	color: var(--light);
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+	line-height: 1.8rem;
+	font-weight: 400;
+	outline: none;
+	border: none;
+}
+.form-note {
+	width: 100%;
+	height: 80vh;
+	font-size: 0.9rem;
+	background: transparent;
+	color: var(--light);
+	margin-bottom: 1rem;
+	font-weight: 400;
+	outline: none;
+	border: none;
+	resize: none;
+}
+
 /* scroll bar styles */
 ::-webkit-scrollbar {
-	width: 8px;
+	width: 10px;
 }
 ::-webkit-scrollbar-track {
 	background: #00000000;
@@ -134,7 +166,7 @@ body {
 	background-color: rgba(255, 255, 255, 0.137);
 }
 ::-webkit-scrollbar-thumb:hover {
-	background: rgb(83, 83, 83);
+	background: rgba(255, 255, 255, 0.349);
 }
 
 /* media queries */
