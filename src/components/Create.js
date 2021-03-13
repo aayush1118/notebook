@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import NotesContext from './NotesContext';
+import dayjs from 'dayjs';
 
 function Create() {
 	const { setNotes } = useContext(NotesContext);
@@ -16,7 +17,11 @@ function Create() {
 		e.preventDefault();
 		if (note.title.length !== 0) {
 			setNotes((prevItems) => [
-				{ ...note, id: Date.now().toString() },
+				{
+					...note,
+					date: dayjs().format('MMM D, YYYY'),
+					id: Date.now().toString(),
+				},
 				...prevItems,
 			]);
 			history.push('/');

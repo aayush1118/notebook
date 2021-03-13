@@ -8,6 +8,7 @@
 	--red: #fa886f;
 	--blue: #71caf1;
 	--green: #75c57d;
+	--pink: #ff7cc3;
 	--light: #fbfbfb;
 	--secondary: #f6f6f6;
 	font-size: 20px;
@@ -86,7 +87,12 @@ body {
 	background-color: var(--light);
 	border-radius: 0.7rem;
 	padding: 0.8rem;
+	height: 8rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
+
 .card-title {
 	font-size: 0.9rem;
 	font-weight: 600;

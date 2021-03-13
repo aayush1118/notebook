@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import NotesContext from './NotesContext';
+import dayjs from 'dayjs';
 
 function Edit() {
 	const { notes, setNotes } = useContext(NotesContext);
@@ -19,7 +20,11 @@ function Edit() {
 		e.preventDefault();
 		if (newNote.title.length !== 0) {
 			setNotes((prevItems) => [
-				{ ...newNote, id: Date.now().toString() },
+				{
+					...newNote,
+					date: dayjs().format('MMM D, YYYY'),
+					id: Date.now().toString(),
+				},
 				...prevItems.filter((x) => x !== oldNote),
 			]);
 

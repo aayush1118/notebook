@@ -11,6 +11,7 @@ function Grid() {
 		'#fa886f',
 		'#71caf1',
 		'#75c57d',
+		'#FF7CC3',
 	];
 
 	return (
@@ -43,7 +44,7 @@ function Grid() {
 							style={{ background: colors[i % colors.length] }}
 						>
 							<h4 className='card-title'>{x.title}</h4>
-							<p className='card-date'>{x.id}</p>
+							<p className='card-date'>{x.date}</p>
 						</div>
 					</Link>
 				))}
