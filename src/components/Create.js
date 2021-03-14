@@ -59,6 +59,7 @@ function Create() {
 						setNote({ ...note, title: e.target.value })
 					}
 					className='form-title'
+					maxlength='30'
 				/>
 				<textarea
 					placeholder='Type something...'
