@@ -85,7 +85,7 @@ body {
 	border-radius: 25rem;
 }
 
-.grid {
+/* .grid {
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -99,16 +99,14 @@ body {
 }
 .grid > *:nth-of-type(3n) {
 	flex: 1 1 40%;
-}
+} */
 
 .card {
 	background-color: var(--light);
 	border-radius: 0.7rem;
-	padding: 0.8rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 0.25rem;
 	height: 100%;
 }
 
@@ -116,10 +114,12 @@ body {
 	font-size: 0.9rem;
 	font-weight: 600;
 	color: var(--background);
+	padding: 0.8rem;
 }
 .card-date {
 	font-size: 0.7rem;
 	color: #00000099;
+	padding: 0.8rem;
 }
 
 .show-title {

@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import NotesContext from './NotesContext';
-import GridLayout from 'react-grid-layout';
+import { Responsive, WidthProvider } from 'react-grid-layout';
+
+const ResponsiveGridLayout = WidthProvider(Responsive);
 
 function Grid() {
 	const { notes } = useContext(NotesContext);
@@ -37,19 +39,41 @@ function Grid() {
 				</Link>
 			</nav>
 
-			<section className='grid'>
+			{/* <section className='grid'> */}
+			<ResponsiveGridLayout
+				className='layout'
+				cols={{ lg: 2, xxs: 2 }}
+				margin={[10, 10]}
+				isResizable={false}
+				compactType='vertical'
+				isBounded={true}
+			>
 				{notes.map((x, i) => (
-					<Link to={`/note/${x.id}`} key={x.id}>
+					// <Link to={`/note/${x.id}`} key={x.id}>
+					<div
+						key={x.id}
+						data-grid={{
+							x: i % 2 === 0 ? 0 : 1,
+							y: 0,
+							w: 1,
+							h: 1,
+						}}
+					>
 						<div
 							className='card'
-							style={{ background: colors[i % colors.length] }}
+							style={{
+								background: colors[i % colors.length],
+							}}
 						>
 							<h4 className='card-title'>{x.title}</h4>
 							<p className='card-date'>{x.date}</p>
 						</div>
-					</Link>
+					</div>
+					// </Link>
 				))}
-			</section>
+			</ResponsiveGridLayout>
+
+			{/* </section> */}
 
 			<Link to={'/create'} className='createBtn'>
 				<svg
