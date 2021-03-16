@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import NotesContext from './NotesContext';
+import GridLayout from 'react-grid-layout';
 
 function Grid() {
 	const { notes } = useContext(NotesContext);
