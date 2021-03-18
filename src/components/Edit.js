@@ -34,7 +34,7 @@ function Edit() {
 
 	return (
 		<>
-			<nav class='nav'>
+			<nav className='nav'>
 				<Link to={'/'} className='btn'>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'

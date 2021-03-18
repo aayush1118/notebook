@@ -26,9 +26,9 @@ function Grid() {
 		setAllowDrag(!allowDrag);
 	};
 
-	const forwardTo = () => {
+	const forwardTo = (id) => {
 		if (allowForward) {
-			history.push('/create');
+			history.push(`/note/${id}`);
 		}
 	};
 

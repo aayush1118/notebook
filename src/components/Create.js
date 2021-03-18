@@ -30,7 +30,7 @@ function Create() {
 
 	return (
 		<>
-			<nav class='nav'>
+			<nav className='nav'>
 				<Link to={'/'} className='btn'>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
@@ -59,7 +59,7 @@ function Create() {
 						setNote({ ...note, title: e.target.value })
 					}
 					className='form-title'
-					maxlength='30'
+					maxLength='30'
 				/>
 				<textarea
 					placeholder='Type something...'
