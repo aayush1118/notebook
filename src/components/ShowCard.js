@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import NotesContext from './NotesContext';
+import { motion } from 'framer-motion';
 
 function ShowCard() {
 	const { notes } = useContext(NotesContext);
@@ -8,7 +9,11 @@ function ShowCard() {
 	const id = match.params.id;
 	const note = notes.find((x) => x.id === id);
 	return (
-		<>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<nav className='nav'>
 				<Link to={'/'} className='btn'>
 					<svg
@@ -47,7 +52,7 @@ function ShowCard() {
 				<p className='show-date'>{note.date}</p>
 				<p className='show-note'>{note.note}</p>
 			</section>
-		</>
+		</motion.div>
 	);
 }
 

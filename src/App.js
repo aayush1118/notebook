@@ -6,6 +6,7 @@ import ShowCard from './components/ShowCard';
 import Edit from './components/Edit';
 import NotesContext from './components/NotesContext';
 import { example } from './data';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
 	const [notes, setNotes] = useState([...example]);
@@ -14,13 +15,15 @@ function App() {
 	return (
 		<div className='container'>
 			<NotesContext.Provider value={value}>
-				<Switch>
-					<Route exact path='/' component={Grid} />
-					<Route exact path='/create' component={Create} />
-					<Route exact path='/note/:id' component={ShowCard} />
-					<Route exact path='/edit/:id' component={Edit} />
-					<Route render={() => <h1>404: page not found</h1>} />
-				</Switch>
+				<AnimatePresence>
+					<Switch>
+						<Route exact path='/' component={Grid} />
+						<Route exact path='/create' component={Create} />
+						<Route exact path='/note/:id' component={ShowCard} />
+						<Route exact path='/edit/:id' component={Edit} />
+						<Route render={() => <h1>404: page not found</h1>} />
+					</Switch>
+				</AnimatePresence>
 			</NotesContext.Provider>
 		</div>
 	);

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import NotesContext from './NotesContext';
 import dayjs from 'dayjs';
+import { motion } from 'framer-motion';
 
 function Create() {
 	const { setNotes } = useContext(NotesContext);
@@ -29,7 +30,11 @@ function Create() {
 	};
 
 	return (
-		<>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<nav className='nav'>
 				<Link to={'/'} className='btn'>
 					<svg
@@ -68,7 +73,7 @@ function Create() {
 					className='form-note'
 				></textarea>
 			</section>
-		</>
+		</motion.div>
 	);
 }
 

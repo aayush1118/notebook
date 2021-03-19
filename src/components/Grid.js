@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import NotesContext from './NotesContext';
 import { Responsive, WidthProvider } from 'react-grid-layout';
+import { motion } from 'framer-motion';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -33,7 +34,11 @@ function Grid() {
 	};
 
 	return (
-		<>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<nav className='nav'>
 				<h2 className='brand'>Notes</h2>
 				<Link to={'/search'} className='btn'>
@@ -125,7 +130,7 @@ function Grid() {
 					</svg>
 				</Link>
 			</div>
-		</>
+		</motion.div>
 	);
 }
 

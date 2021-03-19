@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import NotesContext from './NotesContext';
 import dayjs from 'dayjs';
+import { motion } from 'framer-motion';
 
 function Edit() {
 	const { notes, setNotes } = useContext(NotesContext);
@@ -33,7 +34,11 @@ function Edit() {
 	};
 
 	return (
-		<>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<nav className='nav'>
 				<Link to={'/'} className='btn'>
 					<svg
@@ -73,7 +78,7 @@ function Edit() {
 					className='form-note'
 				></textarea>
 			</section>
-		</>
+		</motion.div>
 	);
 }
 

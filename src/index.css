@@ -72,9 +72,10 @@ body {
 
 .floating {
 	display: flex;
-	position: sticky;
-	bottom: 3rem;
-	float: right;
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	z-index: 10;
 }
 
 .createBtn,
