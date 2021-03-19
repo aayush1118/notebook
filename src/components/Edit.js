@@ -3,6 +3,7 @@ import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import NotesContext from './NotesContext';
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
+import { pageStyle, pageTransition, pageVariantsL } from './animationFns';
 
 function Edit() {
 	const { notes, setNotes } = useContext(NotesContext);
@@ -10,10 +11,7 @@ function Edit() {
 	const id = match.params.id;
 	const oldNote = notes.find((x) => x.id === id);
 
-	const [newNote, setNewNote] = useState({
-		title: oldNote.title,
-		note: oldNote.note,
-	});
+	const [newNote, setNewNote] = useState(oldNote);
 
 	const history = useHistory();
 
@@ -35,9 +33,12 @@ function Edit() {
 
 	return (
 		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
+			style={pageStyle}
+			initial='initial'
+			animate='in'
+			exit='out'
+			variants={pageVariantsL}
+			transition={pageTransition}
 		>
 			<nav className='nav'>
 				<Link to={'/'} className='btn'>

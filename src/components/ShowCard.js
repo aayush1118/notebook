@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import NotesContext from './NotesContext';
 import { motion } from 'framer-motion';
+import { pageStyle, pageTransition, pageVariantsR } from './animationFns';
 
 function ShowCard() {
 	const { notes } = useContext(NotesContext);
@@ -10,9 +11,12 @@ function ShowCard() {
 	const note = notes.find((x) => x.id === id);
 	return (
 		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
+			style={pageStyle}
+			initial='initial'
+			animate='in'
+			exit='out'
+			variants={pageVariantsR}
+			transition={pageTransition}
 		>
 			<nav className='nav'>
 				<Link to={'/'} className='btn'>

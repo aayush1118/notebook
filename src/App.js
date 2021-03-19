@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import Create from './components/Create';
 import Grid from './components/Grid';
 import ShowCard from './components/ShowCard';
@@ -11,12 +11,13 @@ import { AnimatePresence } from 'framer-motion';
 function App() {
 	const [notes, setNotes] = useState([...example]);
 	const value = useMemo(() => ({ notes, setNotes }), [notes, setNotes]);
+	const location = useLocation();
 
 	return (
-		<div className='container'>
+		<div className='container' style={{ overflowX: 'hidden' }}>
 			<NotesContext.Provider value={value}>
-				<AnimatePresence>
-					<Switch>
+				<AnimatePresence exitBeforeEnter>
+					<Switch location={location} key={location.pathname}>
 						<Route exact path='/' component={Grid} />
 						<Route exact path='/create' component={Create} />
 						<Route exact path='/note/:id' component={ShowCard} />
